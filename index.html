@@ -32,7 +32,7 @@
         margin: 1% auto;
         font-size: 20px;
       }
-      .inputs button {
+      button {
         padding: .5em;
         margin-bottom: 1%;
         font-size: 20px;
@@ -40,7 +40,7 @@
       }
     </style>
     <style media="print">
-      .inputs {
+      .inputs, button {
         display: none;
       }
     </style>
@@ -48,86 +48,6 @@
   <body>
     <div class="inputs">
       <input type="text" id="userText" value="" placeholder="What would you like to practice?"><br><button type="button" name="add" id="add">Add It</button>
-    </div>
-    <div class="word">
-      <p class="sample">Lizzy</p>
-      <p class="prac">Lizzy</p>
-      <p class="prac">Lizzy</p>
-      <p class="prac">Lizzy</p>
-      <p class="prac">Lizzy</p>
-      <p class="prac">Lizzy</p>
-      <p class="prac">Lizzy</p>
-      <p class="prac">Lizzy</p>
-    </div>
-    <div class="word">
-      <p class="sample">Mummy</p>
-      <p class="prac">Mummy</p>
-      <p class="prac">Mummy</p>
-      <p class="prac">Mummy</p>
-      <p class="prac">Mummy</p>
-      <p class="prac">Mummy</p>
-      <p class="prac">Mummy</p>
-      <p class="prac">Mummy</p>
-    </div>
-    <div class="word">
-      <p class="sample">Daddy</p>
-      <p class="prac">Daddy</p>
-      <p class="prac">Daddy</p>
-      <p class="prac">Daddy</p>
-      <p class="prac">Daddy</p>
-      <p class="prac">Daddy</p>
-      <p class="prac">Daddy</p>
-      <p class="prac">Daddy</p>
-    </div>
-    <div class="word">
-      <p class="sample">Nan</p>
-      <p class="prac">Nan</p>
-      <p class="prac">Nan</p>
-      <p class="prac">Nan</p>
-      <p class="prac">Nan</p>
-      <p class="prac">Nan</p>
-      <p class="prac">Nan</p>
-      <p class="prac">Nan</p>
-    </div>
-    <div class="word">
-      <p class="sample">Gra</p>
-      <p class="prac">Gra</p>
-      <p class="prac">Gra</p>
-      <p class="prac">Gra</p>
-      <p class="prac">Gra</p>
-      <p class="prac">Gra</p>
-      <p class="prac">Gra</p>
-      <p class="prac">Gra</p>
-    </div>
-    <div class="word">
-      <p class="sample">Oma</p>
-      <p class="prac">Oma</p>
-      <p class="prac">Oma</p>
-      <p class="prac">Oma</p>
-      <p class="prac">Oma</p>
-      <p class="prac">Oma</p>
-      <p class="prac">Oma</p>
-      <p class="prac">Oma</p>
-    </div>
-    <div class="word">
-      <p class="sample">Opa</p>
-      <p class="prac">Opa</p>
-      <p class="prac">Opa</p>
-      <p class="prac">Opa</p>
-      <p class="prac">Opa</p>
-      <p class="prac">Opa</p>
-      <p class="prac">Opa</p>
-      <p class="prac">Opa</p>
-    </div>
-    <div class="word">
-      <p class="sample">Baby</p>
-      <p class="prac">Baby</p>
-      <p class="prac">Baby</p>
-      <p class="prac">Baby</p>
-      <p class="prac">Baby</p>
-      <p class="prac">Baby</p>
-      <p class="prac">Baby</p>
-      <p class="prac">Baby</p>
     </div>
     <script type="text/javascript">
       document.getElementById('add').addEventListener("click", function(){
@@ -144,8 +64,17 @@
           prac.appendChild(document.createTextNode(userText));
           word.appendChild(prac);
         }
+        var btn = document.createElement('button');
+        btn.addEventListener("click", deleteThis);
+        btn.appendChild(document.createTextNode("Delete"))
+        word.appendChild(btn);
         document.body.appendChild(word);
       });
+      function deleteThis(){
+        var btn = this;
+        var word = btn.parentNode;
+        word.parentNode.removeChild(word);
+      }
     </script>
   </body>
 </html>
