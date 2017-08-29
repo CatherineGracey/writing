@@ -22,9 +22,33 @@
         margin-bottom: 0;
         font-family: 'Raleway Dots', cursive;
       }
+      .inputs {
+        border-bottom: 2px solid;
+        text-align: center;
+      }
+      .inputs input{
+        width: 80%;
+        padding: .5em;
+        margin: 1% auto;
+        font-size: 20px;
+      }
+      .inputs button {
+        padding: .5em;
+        margin-bottom: 1%;
+        font-size: 20px;
+        border-radius: 5px;
+      }
+    </style>
+    <style media="print">
+      .inputs {
+        display: none;
+      }
     </style>
   </head>
   <body>
+    <div class="inputs">
+      <input type="text" id="userText" value="" placeholder="What would you like to practice?"><br><button type="button" name="add" id="add">Add It</button>
+    </div>
     <div class="word">
       <p class="sample">Lizzy</p>
       <p class="prac">Lizzy</p>
@@ -105,5 +129,23 @@
       <p class="prac">Baby</p>
       <p class="prac">Baby</p>
     </div>
+    <script type="text/javascript">
+      document.getElementById('add').addEventListener("click", function(){
+        var userText = document.getElementById('userText').value;
+        var word = document.createElement('div');
+        word.className = 'word';
+        var sample = document.createElement('p');
+        sample.className = 'sample';
+        sample.appendChild(document.createTextNode(userText));
+        word.appendChild(sample);
+        for (var p = 0; p < 7; p++){
+          var prac = document.createElement('p');
+          prac.className = "prac";
+          prac.appendChild(document.createTextNode(userText));
+          word.appendChild(prac);
+        }
+        document.body.appendChild(word);
+      });
+    </script>
   </body>
 </html>
