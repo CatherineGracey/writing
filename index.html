@@ -50,7 +50,9 @@
       <input type="text" id="userText" value="" placeholder="What would you like to practice?"><br><button type="button" name="add" id="add">Add It</button>
     </div>
     <script type="text/javascript">
-      document.getElementById('add').addEventListener("click", function(){
+      document.getElementById('add').addEventListener("click", addThis);
+
+      function addThis(){
         var userText = document.getElementById('userText').value;
         var word = document.createElement('div');
         word.className = 'word';
@@ -69,7 +71,8 @@
         btn.appendChild(document.createTextNode("Delete"))
         word.appendChild(btn);
         document.body.appendChild(word);
-      });
+      }
+      
       function deleteThis(){
         var btn = this;
         var word = btn.parentNode;
